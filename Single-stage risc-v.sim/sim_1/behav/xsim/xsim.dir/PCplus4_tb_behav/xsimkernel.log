@@ -1,0 +1,7 @@
+Running: xsim.dir/PCplus4_tb_behav/xsimk.exe -simmode gui -wdb PCplus4_tb_behav.wdb -simrunnum 0 -socket 59925
+Design successfully loaded
+Design Loading Memory Usage: 30164 KB (Peak: 30164 KB)
+Design Loading CPU Usage: 562 ms
+Simulation completed
+Simulation Memory Usage: 31268 KB (Peak: 31268 KB)
+Simulation CPU Usage: 624 ms
