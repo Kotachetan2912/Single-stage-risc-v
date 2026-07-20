@@ -18,26 +18,75 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+`timescale 1ns / 1ps
 
 module MDC_tb;
 
-reg [6:0] op;
-wire RegWrite;
-wire MemWrite;
-wire Branch;
-wire ALUSrc;
-wire [1:0] ALUop;
-wire [1:0] ImmSrc;
+    // 1. Inputs to the Decoder
+    reg [6:0] op;
+    
+    // 2. Mock Input from the ALU (Needed to calculate PCSrc)
+    reg zero; 
 
-MainDecoder uut (op, RegWrite, MemWrite, Branch, ALUSrc, ALUop, ImmSrc);
+    // 3. Outputs from the Decoder
+    wire RegWrite;
+    wire MemWrite;
+    wire Branch;
+    wire ResultSrc;
+    wire ALUSrc;
+    wire [1:0] ALUop;
+    wire [1:0] ImmSrc;
+    wire jump;
 
-initial begin
-$dumpfile("dump.vcd");
-$dumpvars(0);
+    // 4. The signal you want to see!
+    wire PCSrc; 
 
-op<=1'b0;
-#10 $finish();
-end
+    // Instantiate using Named Port Mapping (Fixes the port mismatch)
+    MainDecoder uut (
+        .op(op), 
+        .RegWrite(RegWrite), 
+        .MemWrite(MemWrite), 
+        .Branch(Branch), 
+        .ResultSrc(ResultSrc), 
+        .ALUSrc(ALUSrc), 
+        .ALUop(ALUop), 
+        .ImmSrc(ImmSrc),
+        .jump(jump),
+        .zero(zero)
+    );
 
-always #2 op<=~op;
+    // Calculate PCSrc just like your Datapath does
+    assign PCSrc = (Branch & zero);
+
+    // Test Sequence
+    initial begin
+        $dumpfile("mdc_waves.vcd");
+        $dumpvars(0, MDC_tb);
+
+        // Test 1: R-Type (add) -> PCSrc should be 0
+        op = 7'b0110011; 
+        zero = 0; 
+        #10;
+
+        // Test 2: Branch (beq) where inputs are NOT equal (Zero = 0)
+        // PCSrc should be 0 because we don't take the branch
+        op = 7'b1100011; 
+        zero = 0; 
+        #10;
+
+        // Test 3: Branch (beq) where inputs ARE equal (Zero = 1)
+        // PCSrc should jump to 1!
+        op = 7'b1100011; 
+        zero = 1; 
+        #10;
+
+        // Test 4: Jump (jal)
+        // PCSrc should be 1 regardless of the Zero flag!
+        op = 7'b1101111; 
+        zero = 0; 
+        #10;
+
+        $finish();
+    end
+
 endmodule

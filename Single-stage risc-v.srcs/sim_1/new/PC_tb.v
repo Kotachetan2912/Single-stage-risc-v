@@ -24,7 +24,7 @@ module PC_tb;
     reg clk;
     reg reset;
     reg [31:0] pc_in;
-    reg start_add;
+    reg [31:0] start_add;
 
     // Outputs
     wire [31:0] pc_out;
@@ -52,12 +52,16 @@ module PC_tb;
         start_add = 32'h00001000;
         reset = 1;
         pc_in = 32'h00000000;  
-        #20;
+        #10;
 
         reset = 0;
-        #20;
+        #10;
         pc_in = 32'h00000004;
-        #20;
+        #10;
+        pc_in = 32'h00000008;
+        #10;
+        pc_in = 32'h0000000C;
+        #10;
         $finish;
     end
 

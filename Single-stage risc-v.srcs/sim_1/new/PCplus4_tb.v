@@ -24,7 +24,7 @@ wire [31:0]PCplus4;
 
 PCplus4 dut (
         .pc_out(pc_out),
-        .pc_next_inst(pc_next_inst)
+        .PCplus4(PCplus4)
     );
 
 initial begin 

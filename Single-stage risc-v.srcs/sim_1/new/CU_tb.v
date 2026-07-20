@@ -3,7 +3,7 @@ module CU_tb;
     // Inputs
     reg [6:0] op;
     reg [2:0] funct3;
-    reg funct7;
+    reg [6:0] funct7;
     reg zero;
     
     // Outputs
@@ -14,7 +14,7 @@ module CU_tb;
     wire MemWrite;
     wire branch;
     wire [1:0] ImmSrc;
-    wire [2:0] ALUControl;
+    wire [2:0] ALU_Control;
 
     // Instantiate the ALUControl module
     ALUControl uut (
@@ -29,7 +29,7 @@ module CU_tb;
         .MemWrite(MemWrite),
         .branch(branch),
         .ImmSrc(ImmSrc),
-        .ALUControl(ALUControl)
+        .ALU_Control(ALU_Control)
     );
 
     // Initialize inputs and apply stimulus
@@ -37,7 +37,7 @@ module CU_tb;
         // Initialize signals
         op = 7'b0000000;   
         funct3 = 3'b000;   
-        funct7 = 1'b0;     
+        funct7[5] = 1'b0;     
         zero = 1'b0;       
 
         // Apply test cases

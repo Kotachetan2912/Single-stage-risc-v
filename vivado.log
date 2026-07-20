@@ -1,0 +1,113 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Mon Jul 20 22:11:22 2026
+# Process ID         : 1776
+# Current directory  : C:/Users/cheta/Single-stage risc-v
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent25780 C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.xpr
+# Log file           : C:/Users/cheta/Single-stage risc-v/vivado.log
+# Journal file       : C:/Users/cheta/Single-stage risc-v\vivado.jou
+# Running On         : Roronoa
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i5-1235U
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 12
+# Host memory        : 8245 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 29720 MB
+# Available Virtual  : 12424 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.2/data/ip'.
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files {{C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.srcs/sources_1/bd/design_1/design_1.bd}}] -no_script -reset -force -quiet
+remove_files  {{C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.srcs/sources_1/bd/design_1/design_1.bd}}
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.srcs\sources_1\new\Datapath.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.srcs\sources_1\new\ALU_CONTROL.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.srcs\sources_1\new\ALU_CONTROL.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.srcs\sources_1\new\ALU_CONTROL.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+export_ip_user_files -of_objects  [get_files {{C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.srcs/sources_1/bd/design_2/design_2.bd}}] -no_script -reset -force -quiet
+remove_files  {{C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.srcs/sources_1/bd/design_2/design_2.bd}}
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.srcs\sources_1\new\Datapath.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.srcs\sources_1\new\ALU_CONTROL.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.srcs\sources_1\new\ALU_CONTROL.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\cheta\Single-stage risc-v\Single-stage risc-v.srcs\sources_1\new\ALU_CONTROL.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'Datapath_tb'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'Datapath_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Datapath_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Datapath_tb_behav xil_defaultlib.Datapath_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Datapath_tb_behav xil_defaultlib.Datapath_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Datapath_tb_behav -key {Behavioral:sim_1:Functional:Datapath_tb} -tclbatch {Datapath_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source Datapath_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Time=0 | PC=xxxxxxxx | Instr=xxxxxxxx | ALURes=xxxxxxxx | RegW=x | Result=xxxxxxxx
+Time=5000 | PC=00000000 | Instr=00a00093 | ALURes=0000000a | RegW=1 | Result=0000000a
+Time=15000 | PC=00000004 | Instr=01400113 | ALURes=00000014 | RegW=1 | Result=00000014
+Time=25000 | PC=00000008 | Instr=01e00193 | ALURes=0000001e | RegW=1 | Result=0000001e
+Time=35000 | PC=0000000c | Instr=00208233 | ALURes=0000001e | RegW=1 | Result=0000001e
+Time=45000 | PC=00000010 | Instr=401102b3 | ALURes=0000000a | RegW=1 | Result=0000000a
+Time=55000 | PC=00000014 | Instr=00000013 | ALURes=00000000 | RegW=1 | Result=00000000
+Time=65000 | PC=00000018 | Instr=0020e3b3 | ALURes=0000001e | RegW=1 | Result=0000001e
+Time=75000 | PC=0000001c | Instr=0020a433 | ALURes=00000001 | RegW=1 | Result=00000001
+Time=85000 | PC=00000020 | Instr=00402023 | ALURes=00000000 | RegW=0 | Result=00000000
+Time=95000 | PC=00000024 | Instr=00002483 | ALURes=00000000 | RegW=1 | Result=0000001e
+Time=105000 | PC=00000028 | Instr=00b50633 | ALURes=00000000 | RegW=1 | Result=00000000
+Time=115000 | PC=0000002c | Instr=406281b3 | ALURes=0000000a | RegW=1 | Result=0000000a
+Time=125000 | PC=00000030 | Instr=00000000 | ALURes=00000000 | RegW=0 | Result=00000000
+Time=135000 | PC=00000034 | Instr=00000000 | ALURes=00000000 | RegW=0 | Result=00000000
+Time=145000 | PC=00000038 | Instr=00000000 | ALURes=00000000 | RegW=0 | Result=00000000
+Time=155000 | PC=0000003c | Instr=00000000 | ALURes=00000000 | RegW=0 | Result=00000000
+$finish called at time : 165 ns : File "C:/Users/cheta/Single-stage risc-v/Single-stage risc-v.srcs/sim_1/new/Datapath_tb.v" Line 84
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Datapath_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jul 20 22:18:06 2026...

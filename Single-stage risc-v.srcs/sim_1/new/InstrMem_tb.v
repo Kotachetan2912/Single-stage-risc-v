@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
@@ -21,21 +19,21 @@
 
 
 module InstrMem_tb;
-    reg [31:0] A;
-    wire [31:0] RD;
+    reg [31:0] pc_out;
+    wire [31:0] instr;
     Instruction_Memory dut (
-        .A(A),
-        .RD(RD)
+        .pc_out(pc_out),
+        .instr(instr)
     );
 
     initial begin
-        A = 32'h00000000;
+        pc_out = 32'h00000000;
         #10;
-        A = 32'h00000004;
+        pc_out = 32'h00000004;
         #10; 
-        A = 32'h00000008;
+        pc_out = 32'h00000008;
         #10; 
-        A = 32'h0000000C;
+        pc_out = 32'h0000000C;
         #10; 
         $finish;
     end

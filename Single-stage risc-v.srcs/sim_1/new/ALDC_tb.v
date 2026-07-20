@@ -1,4 +1,3 @@
-
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -25,20 +24,18 @@ module ALDC_tb;
     reg [2:0] funct3;
     reg funct7;
     reg [1:0] ALUop;
-    wire [2:0] ALUControl;
+    wire [2:0] ALU_Control;
 
     ALUDecoder uut (
         .op(op),
         .funct3(funct3),
         .funct7(funct7),
         .ALUop(ALUop),
-        .ALUControl(ALUControl)
+        .ALU_Control(ALU_Control)
     );
 
     
     initial begin
-        $dumpfile("dump.file");
-        $dumpvars;
         // Initialize inputs
         op = 7'b0000000;
         funct3 = 3'b000;

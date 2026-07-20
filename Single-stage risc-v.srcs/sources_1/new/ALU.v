@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
@@ -21,7 +21,7 @@
 
 module ALU(
     input  [31:0] RD1,
-    input  [31:0] RD2,
+    input  [31:0] SrcB,
     input  [2:0]  ALUControl,
     output reg zero,
     output reg [31:0] ALUResult
@@ -29,11 +29,11 @@ module ALU(
 
     always @(*) begin
         case(ALUControl)
-            3'b000: ALUResult = RD1 + RD2; 
-            3'b001: ALUResult = RD1 - RD2;
-            3'b010: ALUResult = RD1 & RD2; 
-            3'b011: ALUResult = RD1 | RD2; 
-            3'b101: ALUResult = (RD1 < RD2) ? 32'd1 : 32'd0; 
+            3'b000: ALUResult = RD1 + SrcB; 
+            3'b001: ALUResult = RD1 - SrcB;
+            3'b010: ALUResult = RD1 & SrcB; 
+            3'b011: ALUResult = RD1 | SrcB; 
+            3'b101: ALUResult = (RD1 < SrcB) ? 32'd1 : 32'd0; 
             
             default: ALUResult = 32'b0;
          endcase 

@@ -18,29 +18,30 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 module MUX_ALUSrc_tb;
+    reg [31:0] RD2;
+    reg [31:0] ImmExt;
+    reg ALUSrc;
+    wire [31:0] SrcB;
 
-reg RD2, ImmExt, ALUSrc;
-wire SrcB;
+    MUX_ALUSrc dut(
+        .RD2(RD2), 
+        .ImmExt(ImmExt), 
+        .ALUSrc(ALUSrc), 
+        .SrcB(SrcB)
+    );
 
-MUX_ALUSrc dut(RD2, ImmExt, ALUSrc, SrcB);
-
-initial begin 
-RD2<=1'b0;
-ImmExt<=1'b0;
-ALUSrc<=1'b0;
-
-#10 $finish();
-end
-initial begin
-    ALUSrc = 0; RD2 = 32'hAAAA; ImmExt = 32'h5555;
-    #10; 
-    ALUSrc = 1; 
-    #10; 
-    ImmExt = 32'h1234;
-    #10;
-    ALUSrc = 0;
-    #10;
-end
+    initial begin
+        ALUSrc = 0; RD2 = 32'hAAAA_BBBB; ImmExt = 32'h5555_1111;
+        #10; 
+        ALUSrc = 1; 
+        #10; 
+        ImmExt = 32'h1234_5678;
+        #10;
+        ALUSrc = 0;
+        #10;
+        ALUSrc = 0;
+        #50;
+        $finish(); // Only call $finish ONCE at the end!
+    end
 endmodule

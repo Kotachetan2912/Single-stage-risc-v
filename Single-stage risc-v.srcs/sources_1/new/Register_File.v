@@ -27,9 +27,15 @@ input [31:0] WD3,
 output reg [31:0] RD1, 
 output reg [31:0] RD2
     );
-    
-    reg [31:0] register_file[31:0];
-    
+   reg [31:0] register_file [31:0];
+   integer i; // Required for the loop
+
+   initial begin
+       // Loop through all 32 registers and set them to 0
+       for (i = 0; i < 32; i = i + 1) begin
+           register_file[i] = 32'd0;
+       end
+   end
     always@(posedge clk)
     if (WE3)
         register_file[A3] <= WD3;
